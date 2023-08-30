@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -auv --exclude='*/' --exclude='.*' --include='*.html' --exclude='*' "$(pwd)/" "$(dirname "$(pwd)")/"
+find . -name "*.html" -exec cp -v {} ../../ \
