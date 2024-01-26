@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script Pkill
+
+pkill -f beyond

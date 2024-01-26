@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script kills
+
+kill "$(ps -x | pgrep -f beyond)"
