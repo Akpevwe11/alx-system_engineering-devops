@@ -1,0 +1,69 @@
+Infrastructre Design: 
+
+Scenario: 
+
+A user wants to access the website hosted at www.foobar.com. 
+
+Components: 
+
+1. Server: The server could be a Physical or virtual machine on the cloud responsible for hosting the infrastructure. 
+
+2. Web Server (Nginx): Serves static content and acts as  a reverse proxy to forward requests to the application
+server. 
+
+3. Application Server: Executes application logic and generates dynamic content in response to client requests.
+
+4. Application Files(Code Base): Contains the source code of the website/application. 
+
+5. Database (MYSQL): Stores and manages website/application data.
+
+6. Domain Name (foobar.com): Acts as a human-readable alias for the server's IP address (8.8.8.8).
+
+
+Specifics:
+
+    Server:
+        The physical or virtual machine responsible for hosting and running the entire infrastructure.
+        Handles incoming requests from users and communicates with other components.
+
+    Domain Name:
+        Acts as a human-readable alias for the server's IP address.
+        Enables users to access the website using a memorable name (e.g., www.foobar.com).
+
+    DNS Record:
+        The "www" record in www.foobar.com is a type of DNS record known as a CNAME (Canonical Name), which points to the server's IP address.
+
+    Web Server (Nginx):
+        Responsible for handling incoming HTTP requests.
+        Serves static content directly and forwards dynamic requests to the application server.
+        Manages SSL termination and load balancing.
+
+    Application Server:
+        Executes the business logic of the website/application.
+        Generates dynamic content based on user requests.
+        Interacts with the database to retrieve or store data.
+
+    Database (MySQL):
+        Stores website/application data in a structured manner.
+        Handles read and write operations efficiently.
+        Ensures data integrity and persistence.
+
+    Communication with User's Computer:
+        When a user requests the website www.foobar.com, their computer sends an HTTP request over the internet.
+        The request travels through various network routers and reaches the server's IP address (8.8.8.8) associated with foobar.com.
+        The server processes the request, retrieves necessary data from the database (if needed), generates a response, and sends it back to the user's computer.
+
+Issues with the Infrastructure:
+
+    Single Point of Failure (SPOF):
+        The entire infrastructure relies on a single server. If the server goes down, the website becomes inaccessible.
+        To mitigate this, implementing redundancy and failover mechanisms is necessary.
+
+    Downtime during Maintenance:
+        Performing maintenance tasks such as deploying new code may require restarting the web server.
+        During this restart, the website may experience downtime, leading to a poor user experience.
+        Implementing rolling updates and zero-downtime deployment strategies can minimize downtime.
+
+    Limited Scalability:
+        The infrastructure may struggle to handle a sudden increase in incoming traffic beyond the capacity of a single server.
+        Scaling horizontally by adding more servers behind a load balancer or vertically by upgrading server resources can address this issue.
