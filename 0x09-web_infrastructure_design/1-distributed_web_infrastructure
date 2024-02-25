@@ -1,0 +1,39 @@
+Three-Server Web Infrastructure for www.foobar.com [invalid URL removed]
+
+Servers:
+
+    Load Balancer (HAproxy): This server distributes incoming traffic evenly across two web servers, improving scalability and performance.
+    Web Server (x2): These servers host the website's static content and handle HTTP requests. They run software like Nginx.
+    Database Server (MySQL): This server stores website data and handles database interactions. It runs software like MySQL.
+
+Additional Elements:
+
+    Application Files: Website codebase deployed on the application server.
+    Database Cluster (Primary-Replica): This consists of a Primary (Master) server handling writes and a Replica (Slave) server replicating data for redundancy and failover.
+
+Explanations:
+
+    Load Balancer: Distributes traffic based on a chosen algorithm, typically round-robin where requests are sent to each server in turn. This ensures no single server gets overloaded.
+    Active-Passive vs. Active-Active:
+        Active-Passive: Only one web server serves traffic at a time, while the other remains idle in standby mode. If the active server fails, the passive server takes over. This offers high availability but limited scalability as only one server handles requests at a time.
+        Active-Active: Both web servers handle traffic simultaneously, sharing the load. This provides better scalability but requires careful configuration to avoid data inconsistencies.
+    Primary-Replica Cluster:
+        Primary: This server receives all write operations and updates the database.
+        Replica: Replicates data from the Primary server in real-time, ensuring redundancy and allowing read operations to be offloaded.
+        Applications connect to the Primary for write operations and either the Primary or Replica for read operations.
+
+Issues with this infrastructure:
+
+Single Points of Failure (SPOF):
+
+    Single Load Balancer: If it fails, all traffic stops. Consider a redundant load balancer setup.
+    Single Primary Database: If it fails, the website becomes unavailable for writes. Implement automatic failover to the Replica.
+
+Security:
+
+    No Firewall: Exposes servers to unauthorized access. Implement firewalls on each server to restrict inbound and outbound traffic.
+    No HTTPS: Website traffic is unencrypted, exposing sensitive data. Implement HTTPS with a valid SSL certificate to encrypt communication.
+
+Monitoring:
+
+    No Monitoring: Lack of visibility into server health and performance. Implement monitoring tools to track resource usage, errors, and performance metrics.
