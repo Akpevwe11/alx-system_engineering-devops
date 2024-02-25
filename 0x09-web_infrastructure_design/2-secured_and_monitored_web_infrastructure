@@ -1,0 +1,29 @@
+Three-Server Web Infrastructure for www.foobar.com [invalid URL removed]
+
+Servers:
+
+    Load Balancer: This server distributes incoming traffic evenly across various web servers, improving scalability and performance.
+    Web Server (x2): These servers host the website's static content and handle HTTP requests. They run software like Apache or Nginx.
+    Database Server: This server stores website data and handles database interactions. It runs software like MySQL or PostgreSQL.
+
+Additional Elements:
+
+    Firewalls (x3):
+        External Firewall: Protects the entire infrastructure from unauthorized access.
+        Internal Firewalls (x2): One protects the web servers, the other the database server, restricting communication to authorized services.
+    SSL Certificate: Encrypts traffic between users and the website, securing communication.
+    Monitoring Clients (x3): Collect performance and health data from each server.
+
+Explanations:
+
+    Firewalls: Act as security barriers, filtering incoming and outgoing traffic based on defined rules, preventing unauthorized access and malicious attacks.
+    HTTPS: Encrypts website data, ensuring confidentiality and data integrity during transmission, protecting user information and sensitive content.
+    Monitoring: Helps identify and troubleshoot issues proactively, ensuring website uptime and performance. Monitoring tools collect various data points like CPU usage, memory consumption, response times, and error logs.
+    Monitoring QPS: To monitor website requests per second (QPS), configure the monitoring tool to capture metrics like HTTP requests received and processed by the web servers. Set alerts for unusual traffic spikes or drops.
+
+Infrastructure Issues:
+
+    Terminating SSL at Load Balancer: This exposes sensitive data between the load balancer and web servers. Ideally, terminate SSL at the web server level for better encryption and security.
+    Single Writeable Database Server: Creates a single point of failure. Consider replicating the database server for redundancy and disaster recovery.
+    All-in-One Servers: Makes scaling difficult and inflexible. Separate database, web, and application servers allow for independent scaling based on resource demands.
+
