@@ -1,5 +1,7 @@
 Three-Server Web Infrastructure with Split Components and HAProxy Cluster
 
+Link: https://imgbox.com/G91y4EXv
+
 Servers:
 
     Load Balancer Cluster (HAproxy): This consists of two HAproxy instances configured for high availability. They distribute incoming traffic evenly across the web servers.
