@@ -1,0 +1,35 @@
+Three-Server Web Infrastructure with Split Components and HAProxy Cluster
+
+Servers:
+
+    Load Balancer Cluster (HAproxy): This consists of two HAproxy instances configured for high availability. They distribute incoming traffic evenly across the web servers.
+    Web Server (Nginx): This server hosts the website's static content and handles HTTP requests.
+    Application Server (Node.js, Java, Python, etc.): This server runs the application logic and interacts with the database.
+    Database Server (MySQL): This server stores website data and handles database interactions.
+
+Additional Elements:
+
+    Split Components: Separating web, application, and database servers allows for independent scaling and optimization based on specific resource demands.
+
+Explanations:
+
+    HAProxy Cluster: Provides redundancy and failover. If one HAproxy instance fails, the other takes over, ensuring continuous traffic distribution.
+    Split Components:
+        Web Server: Focuses on static content delivery, improving performance and reducing load on the application server.
+        Application Server: Handles dynamic content and application logic, allowing for independent scaling based on application needs.
+        Database Server: Dedicated server ensures optimal database performance and isolation from other components.
+
+Benefits:
+
+    High Availability: HAProxy cluster and redundant database ensure continuous operation even if one component fails.
+    Scalability: Independent scaling of web, application, and database servers based on specific resource requirements.
+    Performance: Dedicated servers optimize performance for each component.
+    Security: Potential security benefits by separating sensitive data (database) from publicly exposed components (web server).
+
+Further Considerations:
+
+    Firewalls: Implement firewalls on each server to restrict inbound and outbound traffic, enhancing security.
+    HTTPS: Configure HTTPS with a valid SSL certificate to encrypt website traffic.
+    Monitoring: Use monitoring tools to track server health, performance, and resource usage.
+    Load Balancer Algorithm: Choose a suitable load-balancing algorithm (e.g., round-robin, least connections) based on your traffic patterns and requirements.
+    Database Replication: Consider implementing database replication for further redundancy and disaster recovery.
