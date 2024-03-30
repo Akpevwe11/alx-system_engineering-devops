@@ -34,14 +34,14 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend praisex64-tech-frontend
+frontend praisex64.tech-frontend
     bind *:80
-    default_backend praisex64-tech-backend
+    default_backend praisex64.tech-backend
 
-backend praisex6-tech-backend
+backend praisex64.tech-backend
     balance roundrobin
-    server 151666-web-01 100.25.190.21:80 check
-    server 151666-web-02 54.160.77.90:80 check
+    server 524122-web-01 54.146.62.56:80 check
+    server 524122-web-02 34.232.72.193:80 check
 "
 
 # shellcheck disable=SC2154
