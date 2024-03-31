@@ -64,3 +64,12 @@ ETag: "5315bd25-264"
 X-Served-By: 03-web-02
 Accept-Ranges: bytes
 ```
+
+## Task 2
+
+### Example: 
+Just as in task #0, we’d like you to automate the task of creating a custom HTTP header response, but with Puppet.
+
+[x] The name of the custom HTTP header must be X-Served-By
+[x] The value of the custom HTTP header must be the hostname of the server Nginx is running on
+[x] Write 2-puppet_custom_http_response_header.pp so that it configures a brand new Ubuntu machine to the [x] requirements asked in this task
