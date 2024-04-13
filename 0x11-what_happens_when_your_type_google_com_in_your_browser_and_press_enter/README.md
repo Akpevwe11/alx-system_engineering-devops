@@ -27,10 +27,27 @@ Before a request arrives at its final destination, it may encounter a firewall.
 
 ### HTTPS/SSL
 
+as the browser establishes a connection with the server, it has do so securly 
+using HTTPS (Hypertext Transfer Protocol Sercure). HTTPS, is a secure communication protocol that encrypts data exchange  between the client and server. This encryption is made possible through the use of SSL (Secure Sockets Layer) or its successor, TLS(Transport Layer Security), inorder to ensure confidentiality and integrity of communication with the server. 
+
 ### Load Balancer
+
+Upon reaching the server's network, our request mayy encounter a load balancer-- a load balancer is a device that distributes incoming traffic accross multiple servers inorder to optimize resource usage and maximize throughput, and ensure high availability. 
+
+Load balancers enhances the scalability and reliability of web applications by envenly distributing the workload among servers.
+
+
 
 ### Web Server
 
+Once our request successfully traverses the load balancer, it arrives at a web server—a specialized software application responsible for serving web content in response to client requests. The web server processes our request, retrieves the requested resources (such as HTML, CSS, and JavaScript files), and sends them back to our browser for rendering.
+
 ### Application Server
 
+In scenarios where dynamic content is involved, our request may be forwarded to an application server—a server-side software framework or environment capable of executing application logic, querying databases, and generating dynamic content on-the-fly. The application server interacts with databases, external services, and other resources to fulfill our request and generate a personalized response.
+
 ### Database
+
+Behind the scenes, our application server may interact with a database—a structured collection of data organized for efficient retrieval and storage. Whether it's storing user information, product catalogs, or session data, databases play a crucial role in powering dynamic web applications by providing persistent storage and enabling data-driven functionalities.
+
+In conclusion, the journey of a web request—from the moment we type a URL into our browser to the moment we receive a response—is a symphony of interconnected technologies and protocols working seamlessly to deliver the desired web experience. By understanding the intricacies of this journey, we gain insight into the fundamental workings of the web stack and the role each component plays in shaping our online interactions.
