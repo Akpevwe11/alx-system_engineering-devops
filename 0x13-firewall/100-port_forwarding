@@ -25,7 +25,6 @@ COMMIT
 # allow all on loopback
 -A ufw-before-input -i lo -j ACCEPT
 -A ufw-before-output -o lo -j ACCEPT
-
 # quickly process packets for which we already have a connection
 -A ufw-before-input -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 -A ufw-before-output -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
