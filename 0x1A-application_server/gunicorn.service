@@ -6,8 +6,8 @@ After=network.target
 User=ubuntu
 Group=www-data 
 WorkingDirectory=AirBnB_clone_4/web_dynamic/
-Environment="PATH=/AirBnB_clone_4/web_dynamic/webdynamic_env/bin"
-ExecStart=/AirBnB_clone_4/web_dynamic/webdynamic_env/bin/gunicorn -b 0.0.0.0:5003 -w 3 --error-logfile /tmp/airbnb-error.log --access-logfile /tmp/airbnb-access.log web_dynamic:app
+Environment="PATH=AirBnB_clone_4/web_dynamic/webdynamic_env/bin"
+ExecStart=AirBnB_clone_4/web_dynamic/webdynamic_env/bin/gunicorn -b 0.0.0.0:5003 -w 3 --error-logfile /tmp/airbnb-error.log --access-logfile /tmp/airbnb-access.log web_dynamic:app
 
 [Install]
 WantedBy=multi-user.target
